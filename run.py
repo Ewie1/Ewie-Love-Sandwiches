@@ -133,6 +133,19 @@ def calculate_stock_data(data):
         new_stock_data.append(round(stock_sum))
     return new_stock_data
 
+def get_stock_values(data):
+    """
+    Collect heading column and surplus column in worksheet,
+    create a output libaray for the user
+    """
+    stock = SHEET.worksheet("stock")
+    data = stock.get_all_values()
+    headings = data[0]
+    print(headings)
+
+
+    
+
 
 
 def main():
@@ -147,6 +160,7 @@ def main():
     sales_columns = get_last_5_entries_sales()
     stock_data = calculate_stock_data(sales_columns)
     update_worksheet(stock_data, "stock")
+    get_stock_values(data)
 
 
 print("Welcome to Love Sandwich Data Automation")
