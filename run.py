@@ -135,18 +135,16 @@ def calculate_stock_data(data):
 
 def get_stock_values(data):
     """
-    Collect heading column and surplus column in worksheet,
+    Collect heading column and data column in worksheet,
     create a output libaray for the user
     """
     stock = SHEET.worksheet("stock")
-    data = stock.get_all_values()
-    headings = data[0]
-    print(headings)
-
-
-    
-
-
+    head = stock.get_all_values()
+    headings = head[0]   
+    stock_dictionary = {h:int(d) for (h,d) in zip(headings,data)}
+    print(stock_dictionary)
+    # print(headings)
+    # print(data)
 
 def main():
     """
